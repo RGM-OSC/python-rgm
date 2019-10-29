@@ -31,7 +31,7 @@ python3 -m venv --copies %{name}
 # clean and patch python3 venv root path
 find ./%{name} -name *.pyc -exec rm -f {} \;
 find ./%{name} -name *.pyo -exec rm -f {} \;
-BUILD_ENV=$(dirname $(grep ^VIRTUAL_ENV= ./%{name}/bin/activate | cut -d '"' -f 2 ))
+BUILD_ENV=$(grep ^VIRTUAL_ENV= ./%{name}/bin/activate | cut -d '"' -f 2)
 for FILE in $(grep -FlR "$BUILD_ENV" $BUILD_ENV); do
     sed -i "s|${BUILD_ENV}|%{rgm_path}/%{name}|g" $FILE
 done
