@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   0.1
-Release:   0.rgm
+Release:   1.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
@@ -16,8 +16,11 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: rpm-macros-rgm
 BuildRequires: python36-virtualenv python36-pip python3-wheel python36-setuptools
 
+# force rpmbuild to byte-compile using Python3
+%global __python %{__python3}
+
 %description
-RGM Python 3 Virtual Environment
+RGM Python 3.6 Virtual Environment
 
 
 %prep
@@ -26,6 +29,7 @@ RGM Python 3 Virtual Environment
 %build
 # create on the fly python3 venv with modules specified as requirements.txt
 python3 -m venv --copies %{name}
+./%{name}/bin/pip3 install --upgrade pip
 ./%{name}/bin/pip3 install -r requirements.txt
 
 # clean and patch python3 venv root path
@@ -51,5 +55,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 %{rgm_path}/%{name}
 
 %changelog
+* Wed Jan 29 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-1.rgm
+- upgrade pip avec venv creation
+- add python-dateutil module in requirements
+
 * Tue Oct 29 2019 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-0.rgm
 - package creation
