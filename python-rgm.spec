@@ -26,6 +26,7 @@ RGM Python 3.6 Virtual Environment
 %prep
 %setup -q
 
+
 %build
 # create on the fly python3 venv with modules specified as requirements.txt
 python3 -m venv --copies %{name}
@@ -40,19 +41,20 @@ for FILE in $(grep -FlR "$BUILD_ENV" $BUILD_ENV); do
     sed -i "s|${BUILD_ENV}|%{rgm_path}/%{name}|g" $FILE
 done
 
+
 %install
 install -d -o %{rgm_user_nagios} -g %{rgm_group} -m 0755 %{buildroot}%{rgm_path}
 cp -a ./%{name} ${RPM_BUILD_ROOT}%{rgm_path}/
 
-%postun
-rm -rf %{rgm_path}/%{name}
-	
+
 %clean
 rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
+
 
 %files
 %defattr(-,root,root,-)
 %{rgm_path}/%{name}
+
 
 %changelog
 * Wed Oct 21 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-2.rgm
