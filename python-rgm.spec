@@ -1,6 +1,6 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
-Version:   0.1
+Version:   1.0
 Release:   2.rgm
 Group:     Applications/Base
 #BuildArch: noarch
