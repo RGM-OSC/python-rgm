@@ -1,12 +1,12 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   0.1
-Release:   1.rgm
+Release:   2.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
 Packager:  Eric Belhomme <ebelhomme@fr.scc.com>
-URL:       http://gitlab.budcca-demo.lab/rgm-rpms/python-rgm.git
+URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
 Source:    %{name}-%{version}.tar.gz
 
 Requires: rgm-base
@@ -55,6 +55,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 %{rgm_path}/%{name}
 
 %changelog
+* Wed Oct 21 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-2.rgm
+- add elasticsearch_dsl python module
+
 * Wed Jan 29 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-1.rgm
 - upgrade pip avec venv creation
 - add python-dateutil module in requirements
