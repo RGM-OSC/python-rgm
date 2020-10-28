@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   2.rgm
+Release:   3.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
@@ -57,6 +57,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Wed Oct 28 2020 Samuel Ronciaux <sronciaux@fr.scc.com> - 0.1-3.rgm
+- add pywebm python module
+
 * Wed Oct 21 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-2.rgm
 - add elasticsearch_dsl python module
 
