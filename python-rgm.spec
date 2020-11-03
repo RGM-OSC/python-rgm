@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   3.rgm
+Release:   4.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
@@ -57,6 +57,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Tue Nov 03 2020 Lucas Fueyo <lfueyo@fr.scc.com> - 0.1-4.rgm
+- add jmespath python module
+
 * Wed Oct 28 2020 Samuel Ronciaux <sronciaux@fr.scc.com> - 0.1-3.rgm
 - add pywebm python module
 
