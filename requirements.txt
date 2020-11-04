@@ -8,3 +8,4 @@ python-mk-livestatus==0.4
 slackclient>=2.9.0,<2.10.0
 pywbem==1.1.1
 jmespath==0.10.0
+wmi-client-wrapper-py3==2018.3

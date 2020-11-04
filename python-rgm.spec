@@ -59,6 +59,7 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 %changelog
 * Tue Nov 03 2020 Lucas Fueyo <lfueyo@fr.scc.com> - 0.1-4.rgm
 - add jmespath python module
+- add wmi-client-wrapper-py3 python module
 
 * Wed Oct 28 2020 Samuel Ronciaux <sronciaux@fr.scc.com> - 0.1-3.rgm
 - add pywebm python module
