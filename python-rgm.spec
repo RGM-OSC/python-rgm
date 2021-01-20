@@ -57,19 +57,19 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
-* Tue Nov 03 2020 Lucas Fueyo <lfueyo@fr.scc.com> - 0.1-4.rgm
+* Tue Nov 03 2020 Lucas Fueyo <lfueyo@fr.scc.com> - 1.0-4.rgm
 - add jmespath python module
 - add wmi-client-wrapper-py3 python module
 
-* Wed Oct 28 2020 Samuel Ronciaux <sronciaux@fr.scc.com> - 0.1-3.rgm
+* Wed Oct 28 2020 Samuel Ronciaux <sronciaux@fr.scc.com> - 1.0-3.rgm
 - add pywebm python module
 
-* Wed Oct 21 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-2.rgm
+* Wed Oct 21 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-2.rgm
 - add elasticsearch_dsl python module
 
-* Wed Jan 29 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-1.rgm
+* Wed Jan 29 2020 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-1.rgm
 - upgrade pip avec venv creation
 - add python-dateutil module in requirements
 
-* Tue Oct 29 2019 Eric Belhomme <ebelhomme@fr.scc.com> - 0.1-0.rgm
+* Tue Oct 29 2019 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-0.rgm
 - package creation
