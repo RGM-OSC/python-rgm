@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   4.rgm
+Release:   5.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
@@ -15,6 +15,9 @@ Requires: python36
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: rpm-macros-rgm
 BuildRequires: python36-virtualenv python36-pip python3-wheel python36-setuptools
+
+# disable debuginfo package generation
+%define debug_package %{nil}
 
 # force rpmbuild to byte-compile using Python3
 %global __python %{__python3}
@@ -57,6 +60,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Wed Sep 15 2021 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-5.rgm
+- add python dependencies : cryptography, requests, hvac
+
 * Tue Nov 03 2020 Lucas Fueyo <lfueyo@fr.scc.com> - 1.0-4.rgm
 - add jmespath python module
 - add wmi-client-wrapper-py3 python module
