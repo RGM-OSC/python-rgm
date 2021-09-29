@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   5.rgm
+Release:   6.rgm
 Group:     Applications/Base
 #BuildArch: noarch
 License:   GPLv2
@@ -60,6 +60,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Wed Sep 29 2021 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-6.rgm
+- fix bug on elasticsearch 7.14 module with OSS ES: downgrade to 7.13
+
 * Wed Sep 15 2021 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-5.rgm
 - add python dependencies : cryptography, requests, hvac
 
