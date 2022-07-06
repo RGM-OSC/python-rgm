@@ -13,3 +13,4 @@ pywbem==1.1.1
 requests>=2.25.0
 slackclient>=2.9.0,<2.10.0
 wmi-client-wrapper-py3==2018.3
+tk>=0.1.0

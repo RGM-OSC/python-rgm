@@ -1,11 +1,9 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   6.rgm
+Release:   7.rgm
 Group:     Applications/Base
-#BuildArch: noarch
 License:   GPLv2
-Packager:  Eric Belhomme <ebelhomme@fr.scc.com>
 URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
 Source:    %{name}-%{version}.tar.gz
 
@@ -60,6 +58,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Wed Jul 06 2022 Christophe Cassan <ccassan@fr.scc.com> - 1.0-7.rgm
+- Add tk release
+
 * Wed Sep 29 2021 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-6.rgm
 - fix bug on elasticsearch 7.14 module with OSS ES: downgrade to 7.13
 
