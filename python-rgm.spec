@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   7.rgm
+Release:   8.rgm
 Group:     Applications/Base
 License:   GPLv2
 URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
@@ -41,7 +41,7 @@ BUILD_ENV=$(grep ^VIRTUAL_ENV= ./%{name}/bin/activate | cut -d '"' -f 2)
 for FILE in $(grep -FlR "$BUILD_ENV" $BUILD_ENV); do
     sed -i "s|${BUILD_ENV}|%{rgm_path}/%{name}|g" $FILE
 done
-
+cp -r NagiosDisplay ./%{name}/lib/python3.6/site-packages/
 
 %install
 install -d -o %{rgm_user_nagios} -g %{rgm_group} -m 0755 %{buildroot}%{rgm_path}
@@ -58,6 +58,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Mon Jan 16 2023 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-8.rgm
+- add NagiosDisplay python class
+
 * Wed Jul 06 2022 Christophe Cassan <ccassan@fr.scc.com> - 1.0-7.rgm
 - Add tk release
 
