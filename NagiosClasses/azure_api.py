@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-from turtle import right
 import requests
 
 class AzureApi:

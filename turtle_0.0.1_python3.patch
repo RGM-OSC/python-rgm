@@ -1,0 +1,9 @@
+--- lib/python3.6/site-packages/turtle/service.orig.py	2023-01-16 15:14:03.671326725 +0100
++++ lib/python3.6/site-packages/turtle/service.py	2023-01-16 15:13:37.371032272 +0100
+@@ -82,5 +82,5 @@
+             reactor.listenTCP(port, f)
+         except:
+             import traceback
+-            print traceback.format_exc()
++            print(traceback.format_exc())
+             raise

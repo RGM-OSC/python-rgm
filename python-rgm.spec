@@ -32,7 +32,13 @@ RGM Python 3.6 Virtual Environment
 # create on the fly python3 venv with modules specified as requirements.txt
 python3 -m venv --copies %{name}
 ./%{name}/bin/pip3 install --upgrade pip
+./%{name}/bin/pip3 install --upgrade setuptools
 ./%{name}/bin/pip3 install -r requirements.txt
+
+# turtle python3 patch
+CURDIR="$(pwd -P)"
+patch -i "${CURDIR}/turtle_0.0.1_python3.patch" -d ./%{name} -p0
+
 
 # clean and patch python3 venv root path
 find ./%{name} -name *.pyc -exec rm -f {} \;
@@ -41,7 +47,8 @@ BUILD_ENV=$(grep ^VIRTUAL_ENV= ./%{name}/bin/activate | cut -d '"' -f 2)
 for FILE in $(grep -FlR "$BUILD_ENV" $BUILD_ENV); do
     sed -i "s|${BUILD_ENV}|%{rgm_path}/%{name}|g" $FILE
 done
-cp -r NagiosDisplay ./%{name}/lib/python3.6/site-packages/
+cp -r NagiosClasses ./%{name}/lib/python3.6/site-packages/
+
 
 %install
 install -d -o %{rgm_user_nagios} -g %{rgm_group} -m 0755 %{buildroot}%{rgm_path}
@@ -59,7 +66,11 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 %changelog
 * Mon Jan 16 2023 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-8.rgm
+- upgrade setutptools to latest release
+- add turtle module requirements
 - add NagiosDisplay python class
+- add AzureApi python class
+- add CitrixApi python class
 
 * Wed Jul 06 2022 Christophe Cassan <ccassan@fr.scc.com> - 1.0-7.rgm
 - Add tk release
