@@ -1,18 +1,18 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
-Version:   1.0
-Release:   8.rgm
+Version:   2.0
+Release:   0.rgm
 Group:     Applications/Base
 License:   GPLv2
 URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
 Source:    %{name}-%{version}.tar.gz
 
 Requires: rgm-base
-Requires: python36
+Requires: python3
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: rpm-macros-rgm
-BuildRequires: python36-virtualenv python36-pip python3-wheel python36-setuptools
+BuildRequires: python3-virtualenv python3-pip python3-wheel python3-setuptools
 
 # disable debuginfo package generation
 %define debug_package %{nil}
@@ -21,7 +21,7 @@ BuildRequires: python36-virtualenv python36-pip python3-wheel python36-setuptool
 %global __python %{__python3}
 
 %description
-RGM Python 3.6 Virtual Environment
+RGM Python 3 Virtual Environment
 
 
 %prep
@@ -47,7 +47,7 @@ BUILD_ENV=$(grep ^VIRTUAL_ENV= ./%{name}/bin/activate | cut -d '"' -f 2)
 for FILE in $(grep -FlR "$BUILD_ENV" $BUILD_ENV); do
     sed -i "s|${BUILD_ENV}|%{rgm_path}/%{name}|g" $FILE
 done
-cp -r NagiosClasses ./%{name}/lib/python3.6/site-packages/
+cp -r NagiosClasses ./%{name}/lib/python3.9/site-packages/
 
 
 %install
@@ -65,6 +65,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Tue Apr 25 2023 Vincent Fricou <vfricou@fr.scc.com> - 2.0-0.rgm
+- upgrade to python39
+
 * Mon Jan 16 2023 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-8.rgm
 - upgrade setutptools to latest release
 - add turtle module requirements
