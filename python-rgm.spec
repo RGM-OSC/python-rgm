@@ -20,6 +20,9 @@ BuildRequires: python3-virtualenv python3-pip python3-wheel python3-setuptools
 # force rpmbuild to byte-compile using Python3
 %global __python %{__python3}
 
+# Force isolate build environment
+%define _build_id_links none
+
 %description
 RGM Python 3 Virtual Environment
 
@@ -30,7 +33,7 @@ RGM Python 3 Virtual Environment
 
 %build
 # create on the fly python3 venv with modules specified as requirements.txt
-python3 -m venv --copies %{name}
+%{python3} -m venv --copies %{name}
 ./%{name}/bin/pip3 install --upgrade pip
 ./%{name}/bin/pip3 install --upgrade setuptools
 ./%{name}/bin/pip3 install -r requirements.txt
