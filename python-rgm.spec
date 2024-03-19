@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   2.0
-Release:   0.rgm
+Release:   1.rgm
 Group:     Applications/Base
 License:   GPLv2
 URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
@@ -68,6 +68,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Tue Mar 19 2024 Vincent Fricou <vfricou@fr.scc.com> - 2.0-1.rgm
+- add xmltodict requirement
+
 * Tue Apr 25 2023 Vincent Fricou <vfricou@fr.scc.com> - 2.0-0.rgm
 - upgrade to python39
 
