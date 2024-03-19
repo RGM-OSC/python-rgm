@@ -1,7 +1,7 @@
 Summary:   RGM Python 3 environment
 Name:      python-rgm
 Version:   1.0
-Release:   8.rgm
+Release:   9.rgm
 Group:     Applications/Base
 License:   GPLv2
 URL:       https://gitlab.forge.rgm-cloud.io/rgm-rpms/python-rgm
@@ -65,6 +65,9 @@ rm -rf ${RPM_BUILD_ROOT}%{rgm_path}/%{name}-%{version}
 
 
 %changelog
+* Tue Mar 19 2024 Vincent Fricou <vfricou@fr.scc.com> - 1.0-9.rgm
+- add xmltodict requirement
+
 * Mon Jan 16 2023 Eric Belhomme <ebelhomme@fr.scc.com> - 1.0-8.rgm
 - upgrade setutptools to latest release
 - add turtle module requirements
